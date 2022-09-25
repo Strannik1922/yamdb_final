@@ -1,11 +1,9 @@
-# .github/workflows/**yamdb_workflow.yml**
 name: Django-app workflow
 
 on: [push]
 
 jobs:
-  tests:
-    # «Раннер» — создание изолированного окружения с последней версией Ubuntu 
+  tests: 
     runs-on: ubuntu-latest
 
     steps:
@@ -25,18 +23,6 @@ jobs:
       run: |
         python -m flake8
         pytest
-
-    - name: Send message if  Tests failed
-      if: ${{ failure() }}
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          ${{ steps.run_test.outcome }}
-          ${{ steps.run_test.conclusion }}
-          Ошибка при тестировании - ${{ github.repositary }}
-          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
