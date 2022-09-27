@@ -12,7 +12,7 @@ services:
     env_file:
       - ./.env
   web:
-    build: ../api_yamdb/
+    image: needred/api_yamdb:latest
     restart: always
     volumes:
 
