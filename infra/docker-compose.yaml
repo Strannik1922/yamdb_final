@@ -12,7 +12,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: strannik1922/yamdb
+    image: strannik1922/yamdb:latest
     restart: always
     volumes:
 

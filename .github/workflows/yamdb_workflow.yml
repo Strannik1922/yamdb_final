@@ -43,7 +43,7 @@ jobs:
         with:
           context: ./api_yamdb
           push: true
-          tags: strannik1922/yamdb_final:latest
+          tags: strannik1922/yamdb:latest
 
   deploy:
     runs-on: ubuntu-latest
